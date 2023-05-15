@@ -5,10 +5,11 @@ import { ButtonFeedback } from '../ButtonFeedback/ButtonFeedback';
 
 
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
+  const optionsKey = Object.keys(options);
   return (
     <>
       <ButtonList>
-        {options.map((option, index) => {
+        {optionsKey.map((option, index) => {
           const label = option.charAt(0).toUpperCase() + option.slice(1);
 
           return (
@@ -25,6 +26,6 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 };
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  options: PropTypes.objectOf(PropTypes.number).isRequired,
   onLeaveFeedback: PropTypes.func.isRequired,
 };
